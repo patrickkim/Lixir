@@ -42,7 +42,13 @@ exports.config =
     public: "priv/static"
 
   #Configure your plugins
-  # plugins:
+  plugins:
+   sass:
+      mode: 'native'
+    postcss:
+      processors: [
+        require('autoprefixer')(["last 2 version", "> 1%"])
+      ]
 
   modules:
     autoRequire:
