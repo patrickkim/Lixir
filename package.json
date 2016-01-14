@@ -15,8 +15,8 @@
     "phoenix": "file:deps/phoenix",
     "phoenix_html": "file:deps/phoenix_html",
     "rosie": "^1.2.0",
+    "sass-brunch": "^1.9.2",
     "sinon": "^1.17.2",
-    "stylus-brunch": "^1.8.1",
     "uglify-js-brunch": ">= 1.0 < 1.8",
     "underscore": "^1.8.3"
   }

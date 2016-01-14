@@ -42,9 +42,7 @@ exports.config =
     public: "priv/static"
 
   #Configure your plugins
-  plugins:
-    stylus:
-      includeCss: true
+  # plugins:
 
   modules:
     autoRequire:
