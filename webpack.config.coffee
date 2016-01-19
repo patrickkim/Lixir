@@ -20,20 +20,18 @@ module.exports =
   output:
     path: "./priv/static/js"
     filename: "app.js"
+  resolveLoader:
+    modulesDirectories: ['node_modules']
   resolve:
-    extensions: ["", ".jsx", ".cjsx", ".coffee", ".js"]
-    modulesDirectories: ["node_modules"]
+    extensions: ["", ".js", ".cjsx", ".coffee"]
   module:
     loaders: [{
-        test: /\.jsx$/
-        loader: "jsx-loader?insertPragma=React.DOM"
-      },{
         test: /\.cjsx$/
         loaders: ["coffee", "cjsx"]
       },{
         test: /\.coffee$/
         exclude: /\.test\.coffee$/
-        loader: "coffee-loader"
+        loader: "coffee"
       },{
         test: /\.scss$/
         loader: "sass-loader"

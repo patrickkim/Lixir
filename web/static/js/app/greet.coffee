@@ -7,7 +7,6 @@ class Greeter
   hello: ->
     console.log "helllloooo"
     console.log "has _?", _?
-    console.log @temp
     console.log "test module", _(@temp).includes 5
 
 module.exports = new Greeter()
