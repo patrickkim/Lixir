@@ -1,5 +1,5 @@
 # Default Modules available and namespaced assignets on global.
-_      = require "underscore"
+_      = require "lodash"
 sinon  = require "sinon"
 chai   = require "chai"
 jsdom  = require("jsdom").jsdom

@@ -1,6 +1,6 @@
 describe "Mocha/Frontend test setup", ->
 
-  describe "#underscore", ->
+  describe "#underscore/lodash", ->
     it "has _ available", ->
       expect(_).to.be.ok
       array = [0, 1, false, 2, '', 3]

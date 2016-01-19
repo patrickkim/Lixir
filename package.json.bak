@@ -1,0 +1,40 @@
+{
+  "repository": {},
+  "scripts": {
+    "test": "NODE_ENV=test mocha --compilers coffee:coffee-script/register $(find . -name \"*.test.coffee\")"
+  },
+  "dependencies": {
+    "autoprefixer": "^6.2.3",
+    "brunch": "^2.1.1",
+    "clean-css-brunch": ">= 1.0 < 1.8",
+    "coffee-script-brunch": "^1.8.3",
+    "css-brunch": ">= 1.0 < 1.8",
+    "javascript-brunch": ">= 1.0 < 1.8",
+    "phoenix": "file:deps/phoenix",
+    "phoenix_html": "file:deps/phoenix_html",
+    "postcss-brunch": "^0.5.0",
+    "sass-brunch": "^1.9.2",
+    "uglify-js-brunch": ">= 1.0 < 1.8",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "webpack": "^1.11.0",
+    "chai": "^3.4.1",
+    "rosie": "^1.2.0",
+    "sinon": "^1.17.2",
+    "jsdom": "^7.2.2",
+    "mocha": "^2.3.4",
+  }
+
+}
+
+
+
+{
+    module: {
+        loaders: [
+            { test: /\.coffee$/, loader: "coffee-loader" },
+            { test: /\.(coffee\.md|litcoffee)$/, loader: "coffee-loader?literate" }
+        ]
+    }
+}

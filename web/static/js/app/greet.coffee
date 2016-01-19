@@ -1,4 +1,4 @@
-_ = require "underscore"
+_ = require "lodash"
 
 class Greeter
 
@@ -6,7 +6,8 @@ class Greeter
 
   hello: ->
     console.log "helllloooo"
-    console.log "has underscore?", _?
-    console.log "test module", _(@temp).contains 5
+    console.log "has _?", _?
+    console.log @temp
+    console.log "test module", _(@temp).includes 5
 
 module.exports = new Greeter()
