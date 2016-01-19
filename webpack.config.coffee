@@ -26,14 +26,14 @@ module.exports =
     extensions: ["", ".js", ".cjsx", ".coffee"]
   module:
     loaders: [{
+        test: /\.scss$/
+        loader: "sass-loader"
+      },{
         test: /\.cjsx$/
         loaders: ["coffee", "cjsx"]
       },{
         test: /\.coffee$/
         exclude: /\.test\.coffee$/
         loader: "coffee"
-      },{
-        test: /\.scss$/
-        loader: "sass-loader"
       }]
   # plugins: plugins

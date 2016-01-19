@@ -3,9 +3,9 @@
 # paths "./socket" or full ones "web/static/js/socket".
 # require "./socket"
 
-React = require "react"
-Greet = require "./app/greet"
-AppComponent = require "./components/app/AppComponent"
+
+Greet = require './app/greet'
+index = require './components/app/index'
 
 window.Lixir =
   App:
@@ -14,7 +14,8 @@ window.Lixir =
       Greet.hello()
 
     react: ->
-      React.render <AppComponent />, document.body
+      index("ohhhhh shit")
 
 window.onload = ->
   Lixir.App.run()
+  Lixir.App.react()
