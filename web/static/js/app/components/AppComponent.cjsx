@@ -1,5 +1,5 @@
 React = require "react"
-someComponent = require "./someComponent"
+SomeComponent = require "./someComponent"
 
 AppComponent = React.createClass
 
@@ -7,8 +7,8 @@ AppComponent = React.createClass
 
   render: ->
     <div id='application'>
-      <someComponent />
-      <h1>Woo!</h1>
+      <SomeComponent />
+      <h1>Woo hoo!</h1>
     </div>
 
 module.exports = AppComponent

@@ -3,9 +3,8 @@
 # paths "./socket" or full ones "web/static/js/socket".
 # require "./socket"
 
-
 Greet = require './app/greet'
-index = require './components/app/index'
+index = require './app/index'
 
 window.Lixir =
   App:

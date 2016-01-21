@@ -1,39 +1,72 @@
-# exportsOfFile = require("coffee!./file.coffee")
-webpack = require "webpack"
+autoprefixer      = require "autoprefixer"
+ExtractTextPlugin = require "extract-text-webpack-plugin"
+CopyWebpackPlugin = require "copy-webpack-plugin"
+path              = require "path"
+webpack           = require "webpack"
 
-env = process.env.MIX_ENV || 'dev'
-prod = env == 'prod'
+# ENV setup
+ENV = process.env.MIX_ENV || "dev"
 
-# plugins = [new ExtractTextPlugin("app.css")]
+# CSS packages / plug-ins
+appStyles = new ExtractTextPlugin("css/app.css")
 
-#This is necessary to get the sass @import's working
-# stylePathResolves = (
-#     'includePaths[]=' + path.resolve('./') + '&' +
-#     'includePaths[]=' + path.resolve('./node_modules')
-#   )
+# Static Assets
+staticAssets = new CopyWebpackPlugin(
+  [{ from: "./web/static/assets" }]
+  ignore: ['*.DS_Store']
+)
 
-# if (prod)
-#   plugins.push(new webpack.optimize.UglifyJsPlugin(minimize: true))
+# Plugins
+plugins = [
+  appStyles
+  staticAssets
+]
+
+# PRODUCTION taks
+if ENV == "prod"
+  plugins.push new webpack.optimize.UglifyJsPlugin(minimize: true)
 
 module.exports =
-  entry: "./web/static/js/app.coffee"
+  entry:
+    app: [
+      "./web/static/css/app.scss"
+      "./web/static/js/app.coffee"
+    ]
   output:
-    path: "./priv/static/js"
-    filename: "app.js"
-  resolveLoader:
-    modulesDirectories: ['node_modules']
-  resolve:
-    extensions: ["", ".js", ".cjsx", ".coffee"]
+    path: "./priv/static"
+    filename: "js/app.js"
+
+  devtool: "source-map"
+
   module:
     loaders: [{
         test: /\.scss$/
-        loader: "sass-loader"
-      },{
+        loader: appStyles.extract(["css", "postcss", "sass"])
+      }, {
+        test: /\.css$/
+        loaders: ["style", "css", "postcss"]
+      }, {
         test: /\.cjsx$/
         loaders: ["coffee", "cjsx"]
-      },{
+      }, {
         test: /\.coffee$/
         exclude: /\.test\.coffee$/
         loader: "coffee"
       }]
-  # plugins: plugins
+  plugins: plugins
+
+  sassLoader:
+    includePaths: [path.resolve("./")]
+
+  postcss: [
+    autoprefixer(browsers: ["last 2 versions"])
+  ]
+
+  resolveLoader:
+    modulesDirectories: [
+      "node_modules"
+      "#{__dirname}/web/static/js"
+    ]
+
+  resolve:
+    extensions: ["", ".js", ".cjsx", ".coffee", "css", ".scss"]
