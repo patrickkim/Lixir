@@ -5,8 +5,9 @@ chai   = require "chai"
 jsdom  = require("jsdom").jsdom
 
 # jsdom for react tests
-document = jsdom "<html><head></head><body></body></html>"
-window = document.defaultView
+global.document = jsdom "<html><head></head><body><div id='react'></div></body></html>"
+global.window = global.document.defaultView
+global.navigator = { userAgent: 'node.js' }
 
 # Expose Globals, lodash, jsdom & chai
 global._        = _
@@ -16,13 +17,15 @@ global.expect   = chai.expect
 global.should   = chai.should()
 
 beforeEach ->
-  @document = document
-  @window   = window
+  @document = global.document
+  @window   = global.window
+  @react_el = @document.querySelector("#react") #drop react renders in here.
+
   @server   = sinon.fakeServer.create()
   @clock    = sinon.useFakeTimers()
 
 afterEach ->
-  @document.body.innerHTML = ""
+  @document.body.innerHTML = "<div id='react'></div>"
   @clock.restore()
   @server.restore()
 
