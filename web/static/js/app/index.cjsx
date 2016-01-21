@@ -1,5 +1,5 @@
-React = require 'react'
-ReactDOM = require 'react-dom'
+React        = require 'react'
+ReactDOM     = require 'react-dom'
 AppComponent = require './components/AppComponent'
 
 module.exports = (message) ->
