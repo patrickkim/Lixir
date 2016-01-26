@@ -4,4 +4,4 @@ AppComponent = require './components/AppComponent'
 
 module.exports = (message) ->
   console.log message if message?
-  ReactDOM.render <AppComponent />, document.getElementById("root")
+  ReactDOM.render <AppComponent />, document.getElementsByClassName("jumbotron")[0]

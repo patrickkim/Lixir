@@ -3,17 +3,17 @@
 # paths "./socket" or full ones "web/static/js/socket".
 # require "./socket"
 
-# Greet = require './app/greet'
-# index = require './app/index'
+Greet = require './app/greet'
+index = require './app/index'
 
 window.Lixir =
   App:
     run: ->
       console.log("Hello!")
-      # Greet.hello()
+      Greet.hello()
 
     react: ->
-      # index("ohhhhh shit")
+      index("ohhhhh shit")
 
 window.onload = ->
   Lixir.App.run()
