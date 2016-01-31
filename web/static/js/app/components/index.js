@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import AppComponent from './appComponent';
+
+require('./_test');
+
 
 export default function(message) {
   if (message) {
@@ -9,6 +12,6 @@ export default function(message) {
 
   ReactDOM.render(
     <AppComponent />,
-    document.querySelector("#root")
+    document.querySelector('#root')
   );
 }

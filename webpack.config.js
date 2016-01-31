@@ -53,12 +53,8 @@ module.exports = {
       test: /\.css$/,
       loaders: ['style', 'css', 'postcss']
     },{
-      test: /\.js$/,
-      exclude: [/\.test\.js$/, /node_modules/],
-      loader: 'babel',
-    }, {
-      test: /\.jsx$/,
-      exclude: /node_modules/,
+      test: /\.jsx?$/,
+      exclude: [/^_/, /\.test\.js$/, /node_modules/],
       loader: 'babel'
     }]
   },

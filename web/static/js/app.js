@@ -3,19 +3,19 @@
 // paths "./socket" or full ones "web/static/js/socket".
 // require "./socket"
 
-import { Greeter } from "./app/greet";
-import index from "./app/components/index";
-// let newGreeter = new Greet();
+import { Greeter } from './app/greet';
+import index from './app/components/index';
+let newGreeter = new Greeter();
 
 window.Lixir = {
-  "App": {
+  'App': {
     run() {
-      console.log("Hello!");
+      console.log('Hello!');
       let Groot = new Greeter();
       Groot.hello();
     },
     react() {
-      index("ohhhhh shit");
+      index('ohhhhh shit');
     }
   }
 };

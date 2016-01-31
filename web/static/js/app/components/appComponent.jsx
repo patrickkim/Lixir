@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SomeComponent from './someComponent';
 
-export default class AppComponent extends React {
+export default class AppComponent extends Component {
   render() {
     return (
       <div id='application'>

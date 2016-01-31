@@ -1,4 +1,4 @@
-import _ from "lodash";
+import _ from 'lodash';
 
 export class Greeter {
 
@@ -7,7 +7,7 @@ export class Greeter {
    }
 
   hello() {
-    console.log("helllloooo");
-    console.log("test module", _(this.temp).includes(5));
+    console.log('helllloooo');
+    console.log('test module', _(this.temp).includes(5));
   }
 }
