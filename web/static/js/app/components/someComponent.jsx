@@ -1,5 +1,5 @@
 import React from 'react';
-require("./someComponent.css");
+require('./someComponent.css');
 
 export default class SomeComponent extends React.Component {
   render() {
