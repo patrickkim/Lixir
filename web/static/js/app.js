@@ -4,7 +4,7 @@
 // require "./socket"
 
 import { Greeter } from "./app/greet";
-import index from "./app/components/index.jsx";
+import index from "./app/components/index";
 // let newGreeter = new Greet();
 
 window.Lixir = {

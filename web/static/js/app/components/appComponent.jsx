@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import SomeComponent from './someComponent';
 
-export default class AppComponent extends React.Component {
+export default class AppComponent extends React {
   render() {
     return (
       <div id='application'>
-        <SomeComponent name='yoyo'/>
+        <SomeComponent increment={1}/>
         <h1>Woo hoo!</h1>
       </div>
     );

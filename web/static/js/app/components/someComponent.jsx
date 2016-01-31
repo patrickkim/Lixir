@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 require('./someComponent.css');
 
-export default class SomeComponent extends React.Component {
+export default class SomeComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { counter: 0 };
+    this.interval = setInterval(() => this.tick(), 1000);
+  }
+
+  tick() {
+    this.setState({
+      counter: this.state.counter + this.props.increment
+    });
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   render() {
     return (
       <div id='some'>
-        <p>Hello</p>
+        <p>Counter ({this.props.increment}): {this.state.counter}</p>
       </div>
     );
   }
 }
- // {this.props.name}

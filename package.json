@@ -1,8 +1,11 @@
 {
   "repository": {},
   "scripts": {
-    "compile": "webpack -p",
-    "test": "NODE_ENV=test mocha --compilers js:babel-register,css:mochaStubCompiler $(find . -name \"_*.test.js\")"
+    "clean": "rimraf priv/static",
+    "build:webpack": "NODE_ENV=production webpack -p",
+    "build": "npm run clean && npm run build:webpack",
+    "test": "NODE_ENV=test mocha --compilers js:babel-register,css:mochaStubCompiler $(find . -name \"_*.test.js\")",
+    "lint": "eslint web/static/js"
   },
   "dependencies": {
     "lodash": "^4.0.0",
@@ -21,6 +24,7 @@
     "chai": "^3.4.1",
     "copy-webpack-plugin": "^0.3.3",
     "css-loader": "^0.23.1",
+    "eslint": "^1.10.3",
     "eslint-plugin-babel": "^3.0.0",
     "eslint-plugin-react": "^3.16.1",
     "extract-text-webpack-plugin": "^1.0.1",
@@ -28,6 +32,7 @@
     "mocha": "^2.3.4",
     "node-sass": "^3.4.2",
     "postcss-loader": "^0.8.0",
+    "rimraf": "^2.5.1",
     "rosie": "^1.2.0",
     "sass-loader": "^3.1.2",
     "sinon": "^1.17.2",
