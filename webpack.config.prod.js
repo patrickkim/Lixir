@@ -4,19 +4,26 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var path              = require('path');
 var webpack           = require('webpack');
 
-// DEV setup
+// PRODUCTION build tasks
 // CSS packages / plug-ins
 var appStyles = new ExtractTextPlugin('css/app.css');
 
 // Static Assets
 var staticAssets = new CopyWebpackPlugin(
   [{ from: './web/static/assets' }],
-  { ignore: ['*.DS_Store'] }
+  {ignore: ['*.DS_Store']}
 );
 
 // Set global variables
 var defineVariables = new webpack.DefinePlugin({
-  __PROD__: false
+  __PROD__: true
+});
+
+var uglifyJS = new webpack.optimize.UglifyJsPlugin({
+  minimize: true,
+  compressor: {
+    warnings: false
+  }
 });
 
 // Plugins
@@ -24,28 +31,20 @@ var plugins = [
   appStyles,
   staticAssets,
   defineVariables,
-  new webpack.NoErrorsPlugin(),
-  new webpack.HotModuleReplacementPlugin()
+  uglifyJS
 ];
 
-// webpack-dev-server
-var publicPath = 'http://localhost:4001/'
-
 module.exports = {
-  devtool: 'eval-source-map',
+  devtool: 'source-map',
   color: true,
   entry: {
     'app': [
-      `webpack-dev-server/client?${publicPath}`,
-      'webpack/hot/only-dev-server',
-      './web/static/js/app.js',
-      './web/static/css/app.scss'
+      './web/static/css/app.scss',
+      './web/static/js/app.js'
     ],
   },
-  output: {
-    path: path.join(__dirname, './priv/static'),
-    filename: 'js/app.js',
-    publicPath
+  output: { path: './priv/static',
+    filename: 'js/app.js'
   },
   module: {
     loaders: [{
@@ -57,7 +56,7 @@ module.exports = {
     },{
       test: /\.jsx?$/,
       exclude: [/^_/, /\.test\.js$/, /node_modules/],
-      loaders: ['react-hot', 'babel']
+      loader: 'babel'
     }]
   },
   plugins,

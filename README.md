@@ -17,3 +17,9 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   * Docs: http://hexdocs.pm/phoenix
   * Mailing list: http://groups.google.com/group/phoenix-talk
   * Source: https://github.com/phoenixframework/phoenix
+
+
+##  Don't forget
+Don’t forget to make webpack.devserver executable:
+`chmod +x webpack.devserver.js`
+ Took notes from http://mikker.github.io/2015/07/16/react-hot-loader-and-phoenix.html

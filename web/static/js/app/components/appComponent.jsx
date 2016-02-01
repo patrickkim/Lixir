@@ -5,7 +5,7 @@ export default class AppComponent extends Component {
   render() {
     return (
       <div id='application'>
-        <SomeComponent increment={1}/>
+        <SomeComponent increment={2}/>
         <h1>Woo hoo!</h1>
       </div>
     );
