@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-require('./someComponent.css');
+
+import styles from './someComponent.css'
 
 export default class SomeComponent extends Component {
   constructor(props) {

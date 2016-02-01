@@ -1,6 +1,7 @@
 /* Component styles with simple css */
 #some {
-  background: orange;
   margin: 15px;
+  padding: 15px;
   display: flex;
+  background: #f0f0f0;
 }
